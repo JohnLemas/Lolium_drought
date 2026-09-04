@@ -1,6 +1,6 @@
 #!/bin/bash --login
 #SBATCH --job-name=align
-#SBATCH --array=1-35
+#SBATCH --array=1-36
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
 #SBATCH --time=00:30:00
