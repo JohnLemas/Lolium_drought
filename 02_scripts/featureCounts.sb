@@ -1,0 +1,48 @@
+#!/bin/bash --login
+#SBATCH --job-name=B.hyb_Counts
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=16G
+#SBATCH --time=00:30:00
+#SBATCH --output=/mnt/scratch/lemasjoh/BARD_PxD/logs/%x-%j.out
+
+# 1. Paths
+DATA_DIR="/mnt/scratch/lemasjoh/BARD_PxD/03_outputs/02_STAR"
+ANN="/mnt/scratch/lemasjoh/BARD_PxD/01_inputs/Bdistachyon_556_v3.2.gene.gtf"
+OUT_DIR="/mnt/scratch/lemasjoh/BARD_PxD/03_outputs/03_featureCounts"
+METADATA="/mnt/scratch/lemasjoh/BARD_PxD/01_inputs/BARD_brachy_metadata.txt"
+
+mkdir -p $OUT_DIR
+
+# 2. Build ordered BAM list from metadata
+#    Assumes a CSV with a header row and a column named "sample_id"
+#    Edit: -F',' = comma delimiter; NR>1 = skip header; $1 = column number of sample_id
+BAM_LIST=()
+while IFS= read -r sample; do
+    bam="${DATA_DIR}/${sample}_Aligned.sortedByCoord.out.bam"
+    if [[ ! -f "$bam" ]]; then
+        echo "ERROR: BAM not found for sample '${sample}': ${bam}" >&2
+        exit 1
+    fi
+    BAM_LIST+=("$bam")
+done < <(awk -F'\t' '{print $4}' "$METADATA")
+
+echo "Sample order passed to featureCounts:"
+printf '  %s\n' "${BAM_LIST[@]}"
+
+ml purge
+ml load Subread
+
+# 3. Run featureCounts
+featureCounts -T 8 \
+    -s 1 \
+    -a ${ANN} \
+    -t exon \
+    -g gene_id \
+    -M --fraction \
+    -o ${OUT_DIR}/counts.txt \
+    "${BAM_LIST[@]}"
+
+# Flags
+# --largestOverlap: 3'UTR may overlap with neighboring genes, assign to gene with largest overlap
+# --readExtension3 200: Extend reads by 200bp at 3' end to capture full 3'UTR signal
+# -M --fraction: Handle multi-mapping reads by assigning fractional counts to all matching features
