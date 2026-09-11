@@ -5,6 +5,8 @@
 #SBATCH --time=00:30:00
 #SBATCH --output=/mnt/scratch/lemasjoh/Lolium_RNAseq/logs/%x-%j.out
 
+set -euo pipefail
+
 # 1. Paths
 BASE="/mnt/scratch/lemasjoh/Lolium_RNAseq"
 DATA_DIR="${BASE}/03_outputs/02_STAR"
@@ -12,11 +14,18 @@ ANN="${BASE}/01_inputs/LolRi_v01.0.gtf"
 OUT_DIR="${BASE}/03_outputs/03_featureCounts"
 METADATA="${BASE}/01_inputs/Lol_metadata.txt"
 
-mkdir -p $OUT_DIR
+mkdir -p "$OUT_DIR"
 
-# 2. Build ordered BAM list from metadata
-#    Assumes a CSV with a header row and a column named "sample_id"
-#    Edit: -F',' = comma delimiter; NR>1 = skip header; $1 = column number of sample_id
+# 2. Clean up any prior featureCounts outputs so this is a fresh run
+#    (featureCounts -R BAM writes <input_bam>.featureCounts.bam next to the input BAM in DATA_DIR)
+echo "Removing old featureCounts BAM/BAI outputs from ${DATA_DIR}..."
+find "$DATA_DIR" -maxdepth 1 -name "*.featureCounts.bam*" -print -delete
+
+echo "Removing old count tables from ${OUT_DIR}..."
+rm -f "${OUT_DIR}/counts.txt" "${OUT_DIR}/counts.txt.summary" "${OUT_DIR}/counts.txt.jcounts"
+
+# 3. Build ordered BAM list from metadata
+#    Tab-delimited file, sample name in column 2, no header row skipped
 BAM_LIST=()
 while IFS= read -r sample; do
     bam="${DATA_DIR}/${sample}_Aligned.sortedByCoord.out.bam"
@@ -33,17 +42,17 @@ printf '  %s\n' "${BAM_LIST[@]}"
 ml purge
 ml load Subread
 
-# 3. Run featureCounts
+# 4. Run featureCounts
 featureCounts -T 8 \
     -s 1 \
-    -a ${ANN} \
+    -a "${ANN}" \
     -t exon \
     -g gene_id \
     -M --fraction \
-    -o ${OUT_DIR}/counts.txt \
+    --largestOverlap \
+    --readExtension3 200 \
+    -R BAM \
+    -o "${OUT_DIR}/counts.txt" \
     "${BAM_LIST[@]}"
 
-# Flags
-# --largestOverlap: 3'UTR may overlap with neighboring genes, assign to gene with largest overlap
-# --readExtension3 200: Extend reads by 200bp at 3' end to capture full 3'UTR signal
-# -M --fraction: Handle multi-mapping reads by assigning fractional counts to all matching features
+echo "Done. Per-read assignment BAMs written to ${DATA_DIR}/*.featureCounts.bam (unsorted - see process_igv_bams.sh)."
