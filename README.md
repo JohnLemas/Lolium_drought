@@ -59,4 +59,4 @@ Counts from `counts_unique.txt` go to DESeq2. Fractional counts are rounded befo
 
 ### Software
 
-STAR 2.7.11b-GCC-13.2.0, SAMtools 1.19.2-GCC-13.2.0, Subread (featureCounts v2.0.6), AGAT, SeqKit, BEDTools, fastp (conda environment `fastp`; *add version*).
+STAR 2.7.11b, SAMtools 1.19.2, Subread (featureCounts v2.0.6), AGAT 1.4.3, SeqKit 2.3.0, BEDTools 2.31.0, fastp (conda environment `fastp`; 1.3.3).
