@@ -8,9 +8,9 @@
 
 # Paths
 BASE="/mnt/scratch/lemasjoh/Lolium_RNAseq"
-GENOME="${BASE}/01_inputs/Lolium_rigidum_reference.v01.fasta"
-ANNO="${BASE}/01_inputs/LolRi_v01.0.gtf"
-INDEX="${BASE}/01_inputs/LolRi_indexed"
+GENOME="$BASE/01_inputs/LolRi.genome.fa"
+ANNO="$BASE/01_inputs/LolRi.star.gtf"
+INDEX="$BASE/01_inputs/LolRi_indexed"
 
 echo -e ">>>STAR:\n\tRunning build mode.\nInput fasta:\n\t${GENOME}\nInput annotation:\n\t${ANNO}"
 
@@ -28,7 +28,7 @@ STAR \
      --genomeFastaFiles $GENOME \
      --sjdbGTFfile $ANNO \
      --sjdbGTFfeatureExon exon \
-     --sjdbGTFtagExonParentTranscript Parent \
-     --sjdbOverhang 99 \
-     --genomeSAindexNbases 13
+     --sjdbOverhang 74 \
+     --genomeSAindexNbases 13 \
+
 echo -e "..process complete. Indexed genome is in\n\t${INDEX}"
