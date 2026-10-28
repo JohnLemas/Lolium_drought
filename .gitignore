@@ -1,19 +1,6 @@
-# --- References & Indexes ---
-01_inputs/raw_data/
-01_inputs/LolRi_indexed/
-01_inputs/LolRi_*
-01_inputs/*.fasta
-
-# --- Logs ---
-logs/fastp/
-logs/align/
-
-# --- Fastp Outputs ---
-03_outputs/01_fastp/
-
-# --- STAR Outputs ---
-03_outputs/02_STAR/*.bam
-03_outputs/02_STAR/*.bai
-03_outputs/02_STAR/*tab
-03_outputs/02_STAR/*Log.out
-03_outputs/02_STAR/*Log.progress.out
+# --- Project root --- #
+01_inputs/
+03_outputs/
+*pdf
+*Rhistory
+*.DS_Store
