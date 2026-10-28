@@ -1,0 +1,12 @@
+Processing Sample: ARG3-5D (Array ID: 19)
+	STAR --runThreadN 8 --genomeDir /mnt/scratch/lemasjoh/Lolium_RNAseq/01_inputs/LolRi_indexed --readFilesIn /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/01_fastp/ARG3-5D_trim.fastq.gz --readFilesCommand zcat --outFileNamePrefix /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/ARG3-5D_ --outSAMtype BAM SortedByCoordinate --outFilterMultimapNmax 20 --winAnchorMultimapNmax 100 --outFilterMismatchNmax 999 --outFilterMismatchNoverLmax 0.08 --outFilterScoreMinOverLread 0.5 --outFilterMatchNminOverLread 0.5 --alignIntronMax 25000 --outFilterIntronMotifs RemoveNoncanonicalUnannotated --outSAMattributes NH HI AS NM MD
+	STAR version: 2.7.11b   compiled: 2024-07-18T13:18:20-04:00 dev-intel14:/tmp/panchyni/easybuild/easybuild/build/STAR/2.7.11b/GCC-13.2.0/STAR-2.7.11b/source
+Oct 27 23:46:27 ..... started STAR run
+Oct 27 23:46:27 ..... loading genome
+Oct 27 23:46:40 ..... started mapping
+Oct 27 23:52:35 ..... finished mapping
+Oct 27 23:52:36 ..... started sorting BAM
+Oct 27 23:53:18 ..... finished successfully
+Alignment for ARG3-5D complete.
+Indexing BAM for ARG3-5D...
+Job for ARG3-5D finished successfully.

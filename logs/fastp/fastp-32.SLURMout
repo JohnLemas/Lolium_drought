@@ -1,0 +1,30 @@
+Read1 before filtering:
+total reads: 40971211
+total bases: 3810474954
+Q20 bases: 3755745904(98.5637%)
+Q30 bases: 3614613188(94.8599%)
+Q40 bases: 3614613188(94.8599%)
+
+Read1 after filtering:
+total reads: 40279184
+total bases: 3137540448
+Q20 bases: 3114058988(99.2516%)
+Q30 bases: 3024155185(96.3862%)
+Q40 bases: 3024155185(96.3862%)
+
+Filtering result:
+reads passed filter: 40279184
+reads failed due to low quality: 234413
+reads failed due to too many N: 4549
+reads failed due to too short: 451886
+reads failed due to adapter dimer: 1179
+reads with adapter trimmed: 118709
+bases trimmed due to adapters: 795992
+
+Duplication rate (may be overestimated since this is SE data): 82.4659%
+
+JSON report: /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/01_fastp/EMR1-5D_fastp.json
+HTML report: /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/01_fastp/EMR1-5D_fastp.html
+
+fastp -i /mnt/scratch/lemasjoh/Lolium_RNAseq/01_inputs/raw_fastq/JC52B8_34_rerun_34_EMR1-5D_34.fastq.gz -o /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/01_fastp/EMR1-5D_trim.fastq.gz --thread 8 --adapter_sequence AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC --trim_front1 12 --cut_front --cut_tail --length_required 20 --html /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/01_fastp/EMR1-5D_fastp.html --json /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/01_fastp/EMR1-5D_fastp.json 
+fastp v1.3.3, time used: 97 seconds

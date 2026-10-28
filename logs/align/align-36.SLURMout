@@ -1,0 +1,11 @@
+Processing Sample:  (Array ID: 36)
+!!!!! WARNING:  Could not ls /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/01_fastp/_trim.fastq.gz
+
+EXITING: because of fatal INPUT file error: could not open read file: /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/01_fastp/_trim.fastq.gz
+SOLUTION: check that this file exists and has read permision.
+
+Oct 27 23:46:27 ...... FATAL ERROR, exiting
+Alignment for  complete.
+Indexing BAM for ...
+samtools index: "/mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/_Aligned.sortedByCoord.out.bam" is in a format that cannot be usefully indexed
+Job for  finished successfully.

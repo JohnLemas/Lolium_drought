@@ -1,0 +1,11 @@
+Processing Sample:  (Array ID: 35)
+
+Exiting because of *FATAL ERROR*: could not create FIFO file /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/__STARtmp/tmp.fifo.read1
+SOLUTION: check the if run directory supports FIFO files.
+If run partition does not support FIFO (e.g. Windows partitions FAT, NTFS), re-run on a Linux partition, or point --outTmpDir to a Linux partition.
+
+Oct 27 23:46:27 ...... FATAL ERROR, exiting
+Alignment for  complete.
+Indexing BAM for ...
+samtools index: "/mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/_Aligned.sortedByCoord.out.bam" is in a format that cannot be usefully indexed
+Job for  finished successfully.

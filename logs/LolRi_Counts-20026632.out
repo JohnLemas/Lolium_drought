@@ -1,0 +1,670 @@
+Sample order passed to featureCounts:
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/KB2-0D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/KB3-0D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/OR1.1-0D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/OR1.2-0D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/OR1.3-0D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/PR1-0D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/PR2-0D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/PR3-0D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/EMR2-0D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/EMR3-0D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/GMR1-0D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/GMR2-0D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/GMR3-0D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/ARG1-0D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/ARG2-0D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/ARG3-0D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/ARG1-5D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/ARG2-5D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/ARG3-5D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/KB1-5D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/KB2-5D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/KB3-5D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/OR1.1-5D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/OR1.2-5D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/OR1.3-5D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/GMR1-05D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/GMR2-5D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/GMR3-5D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/PR1-5D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/PR2-5D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/PR3-5D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/EMR1-5D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/EMR2-5D_Aligned.sortedByCoord.out.bam
+  /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outputs/02_STAR/EMR3-5D_Aligned.sortedByCoord.out.bam
+Running unique mapping..
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.6
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 34 BAM files                                     ||
+||                                                                            ||
+||                           KB2-0D_Aligned.sortedByCoord.out.bam             ||
+||                           KB3-0D_Aligned.sortedByCoord.out.bam             ||
+||                           OR1.1-0D_Aligned.sortedByCoord.out.bam           ||
+||                           OR1.2-0D_Aligned.sortedByCoord.out.bam           ||
+||                           OR1.3-0D_Aligned.sortedByCoord.out.bam           ||
+||                           PR1-0D_Aligned.sortedByCoord.out.bam             ||
+||                           PR2-0D_Aligned.sortedByCoord.out.bam             ||
+||                           PR3-0D_Aligned.sortedByCoord.out.bam             ||
+||                           EMR2-0D_Aligned.sortedByCoord.out.bam            ||
+||                           EMR3-0D_Aligned.sortedByCoord.out.bam            ||
+||                           GMR1-0D_Aligned.sortedByCoord.out.bam            ||
+||                           GMR2-0D_Aligned.sortedByCoord.out.bam            ||
+||                           GMR3-0D_Aligned.sortedByCoord.out.bam            ||
+||                           ARG1-0D_Aligned.sortedByCoord.out.bam            ||
+||                           ARG2-0D_Aligned.sortedByCoord.out.bam            ||
+||                           ARG3-0D_Aligned.sortedByCoord.out.bam            ||
+||                           ARG1-5D_Aligned.sortedByCoord.out.bam            ||
+||                           ARG2-5D_Aligned.sortedByCoord.out.bam            ||
+||                           ARG3-5D_Aligned.sortedByCoord.out.bam            ||
+||                           KB1-5D_Aligned.sortedByCoord.out.bam             ||
+||                           KB2-5D_Aligned.sortedByCoord.out.bam             ||
+||                           KB3-5D_Aligned.sortedByCoord.out.bam             ||
+||                           OR1.1-5D_Aligned.sortedByCoord.out.bam           ||
+||                           OR1.2-5D_Aligned.sortedByCoord.out.bam           ||
+||                           OR1.3-5D_Aligned.sortedByCoord.out.bam           ||
+||                           GMR1-05D_Aligned.sortedByCoord.out.bam           ||
+||                           GMR2-5D_Aligned.sortedByCoord.out.bam            ||
+||                           GMR3-5D_Aligned.sortedByCoord.out.bam            ||
+||                           PR1-5D_Aligned.sortedByCoord.out.bam             ||
+||                           PR2-5D_Aligned.sortedByCoord.out.bam             ||
+||                           PR3-5D_Aligned.sortedByCoord.out.bam             ||
+||                           EMR1-5D_Aligned.sortedByCoord.out.bam            ||
+||                           EMR2-5D_Aligned.sortedByCoord.out.bam            ||
+||                           EMR3-5D_Aligned.sortedByCoord.out.bam            ||
+||                                                                            ||
+||             Output file : counts_unique.txt                                ||
+||                 Summary : counts_unique.txt.summary                        ||
+||              Paired-end : no                                               ||
+||        Count read pairs : no                                               ||
+||              Annotation : LolRi_genes_ext1000bp.saf (SAF)                  ||
+||      Dir for temp files : /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outpu ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : counted                                          ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file LolRi_genes_ext1000bp.saf ...                         ||
+||    Features : 48588                                                        ||
+||    Meta-features : 48588                                                   ||
+||    Chromosomes/contigs : 8                                                 ||
+||                                                                            ||
+|| Process BAM file KB2-0D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 68492842                                             ||
+||    Successfully assigned alignments : 24105730 (35.2%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file KB3-0D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 25690716                                             ||
+||    Successfully assigned alignments : 11122671 (43.3%)                     ||
+||    Running time : 0.05 minutes                                             ||
+||                                                                            ||
+|| Process BAM file OR1.1-0D_Aligned.sortedByCoord.out.bam...                 ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 62162623                                             ||
+||    Successfully assigned alignments : 27025732 (43.5%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file OR1.2-0D_Aligned.sortedByCoord.out.bam...                 ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 74257451                                             ||
+||    Successfully assigned alignments : 25385905 (34.2%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file OR1.3-0D_Aligned.sortedByCoord.out.bam...                 ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 70565448                                             ||
+||    Successfully assigned alignments : 24139680 (34.2%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file PR1-0D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 77892784                                             ||
+||    Successfully assigned alignments : 25716350 (33.0%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file PR2-0D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 68259737                                             ||
+||    Successfully assigned alignments : 26645955 (39.0%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file PR3-0D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 53947634                                             ||
+||    Successfully assigned alignments : 25778189 (47.8%)                     ||
+||    Running time : 0.10 minutes                                             ||
+||                                                                            ||
+|| Process BAM file EMR2-0D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 59983413                                             ||
+||    Successfully assigned alignments : 23019233 (38.4%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file EMR3-0D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 70045478                                             ||
+||    Successfully assigned alignments : 24194140 (34.5%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file GMR1-0D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 54456171                                             ||
+||    Successfully assigned alignments : 26251952 (48.2%)                     ||
+||    Running time : 0.10 minutes                                             ||
+||                                                                            ||
+|| Process BAM file GMR2-0D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 38507092                                             ||
+||    Successfully assigned alignments : 16378073 (42.5%)                     ||
+||    Running time : 0.07 minutes                                             ||
+||                                                                            ||
+|| Process BAM file GMR3-0D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 61876634                                             ||
+||    Successfully assigned alignments : 23763886 (38.4%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file ARG1-0D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 62357320                                             ||
+||    Successfully assigned alignments : 25187233 (40.4%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file ARG2-0D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 32349969                                             ||
+||    Successfully assigned alignments : 10369225 (32.1%)                     ||
+||    Running time : 0.06 minutes                                             ||
+||                                                                            ||
+|| Process BAM file ARG3-0D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 66029836                                             ||
+||    Successfully assigned alignments : 27141786 (41.1%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file ARG1-5D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 60830417                                             ||
+||    Successfully assigned alignments : 23052515 (37.9%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file ARG2-5D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 63523951                                             ||
+||    Successfully assigned alignments : 21904791 (34.5%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file ARG3-5D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 62271154                                             ||
+||    Successfully assigned alignments : 26687489 (42.9%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file KB1-5D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 63402789                                             ||
+||    Successfully assigned alignments : 24888318 (39.3%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file KB2-5D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 56175052                                             ||
+||    Successfully assigned alignments : 24269317 (43.2%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file KB3-5D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 81305831                                             ||
+||    Successfully assigned alignments : 24431759 (30.0%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file OR1.1-5D_Aligned.sortedByCoord.out.bam...                 ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 69822525                                             ||
+||    Successfully assigned alignments : 23113551 (33.1%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file OR1.2-5D_Aligned.sortedByCoord.out.bam...                 ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 65940710                                             ||
+||    Successfully assigned alignments : 26357500 (40.0%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file OR1.3-5D_Aligned.sortedByCoord.out.bam...                 ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 63617443                                             ||
+||    Successfully assigned alignments : 24420567 (38.4%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file GMR1-05D_Aligned.sortedByCoord.out.bam...                 ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 66032171                                             ||
+||    Successfully assigned alignments : 26923888 (40.8%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file GMR2-5D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 67449155                                             ||
+||    Successfully assigned alignments : 25454418 (37.7%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file GMR3-5D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 87673686                                             ||
+||    Successfully assigned alignments : 23115743 (26.4%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file PR1-5D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 60317407                                             ||
+||    Successfully assigned alignments : 25682608 (42.6%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file PR2-5D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 59737573                                             ||
+||    Successfully assigned alignments : 25609620 (42.9%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file PR3-5D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 60153697                                             ||
+||    Successfully assigned alignments : 24098140 (40.1%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file EMR1-5D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 60837232                                             ||
+||    Successfully assigned alignments : 26045141 (42.8%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file EMR2-5D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 55877382                                             ||
+||    Successfully assigned alignments : 25448637 (45.5%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file EMR3-5D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 54321030                                             ||
+||    Successfully assigned alignments : 26063699 (48.0%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/mnt/scratch/lemasjoh/L  ||
+|| olium_RNAseq/03_outputs/03_featureCounts/counts_unique.txt.summary"        ||
+||                                                                            ||
+\\============================================================================//
+
+unique mapping done. running multimapping
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.6
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 34 BAM files                                     ||
+||                                                                            ||
+||                           KB2-0D_Aligned.sortedByCoord.out.bam             ||
+||                           KB3-0D_Aligned.sortedByCoord.out.bam             ||
+||                           OR1.1-0D_Aligned.sortedByCoord.out.bam           ||
+||                           OR1.2-0D_Aligned.sortedByCoord.out.bam           ||
+||                           OR1.3-0D_Aligned.sortedByCoord.out.bam           ||
+||                           PR1-0D_Aligned.sortedByCoord.out.bam             ||
+||                           PR2-0D_Aligned.sortedByCoord.out.bam             ||
+||                           PR3-0D_Aligned.sortedByCoord.out.bam             ||
+||                           EMR2-0D_Aligned.sortedByCoord.out.bam            ||
+||                           EMR3-0D_Aligned.sortedByCoord.out.bam            ||
+||                           GMR1-0D_Aligned.sortedByCoord.out.bam            ||
+||                           GMR2-0D_Aligned.sortedByCoord.out.bam            ||
+||                           GMR3-0D_Aligned.sortedByCoord.out.bam            ||
+||                           ARG1-0D_Aligned.sortedByCoord.out.bam            ||
+||                           ARG2-0D_Aligned.sortedByCoord.out.bam            ||
+||                           ARG3-0D_Aligned.sortedByCoord.out.bam            ||
+||                           ARG1-5D_Aligned.sortedByCoord.out.bam            ||
+||                           ARG2-5D_Aligned.sortedByCoord.out.bam            ||
+||                           ARG3-5D_Aligned.sortedByCoord.out.bam            ||
+||                           KB1-5D_Aligned.sortedByCoord.out.bam             ||
+||                           KB2-5D_Aligned.sortedByCoord.out.bam             ||
+||                           KB3-5D_Aligned.sortedByCoord.out.bam             ||
+||                           OR1.1-5D_Aligned.sortedByCoord.out.bam           ||
+||                           OR1.2-5D_Aligned.sortedByCoord.out.bam           ||
+||                           OR1.3-5D_Aligned.sortedByCoord.out.bam           ||
+||                           GMR1-05D_Aligned.sortedByCoord.out.bam           ||
+||                           GMR2-5D_Aligned.sortedByCoord.out.bam            ||
+||                           GMR3-5D_Aligned.sortedByCoord.out.bam            ||
+||                           PR1-5D_Aligned.sortedByCoord.out.bam             ||
+||                           PR2-5D_Aligned.sortedByCoord.out.bam             ||
+||                           PR3-5D_Aligned.sortedByCoord.out.bam             ||
+||                           EMR1-5D_Aligned.sortedByCoord.out.bam            ||
+||                           EMR2-5D_Aligned.sortedByCoord.out.bam            ||
+||                           EMR3-5D_Aligned.sortedByCoord.out.bam            ||
+||                                                                            ||
+||             Output file : counts_multi.txt                                 ||
+||                 Summary : counts_multi.txt.summary                         ||
+||              Paired-end : no                                               ||
+||        Count read pairs : no                                               ||
+||              Annotation : LolRi_genes_ext1000bp.saf (SAF)                  ||
+||      Dir for temp files : /mnt/scratch/lemasjoh/Lolium_RNAseq/03_outpu ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : counted (fractional)                             ||
+|| Multi-overlapping reads : counted                                          ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file LolRi_genes_ext1000bp.saf ...                         ||
+||    Features : 48588                                                        ||
+||    Meta-features : 48588                                                   ||
+||    Chromosomes/contigs : 8                                                 ||
+||                                                                            ||
+|| Process BAM file KB2-0D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 68492842                                             ||
+||    Successfully assigned alignments : 32292510 (47.1%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file KB3-0D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 25690716                                             ||
+||    Successfully assigned alignments : 15673614 (61.0%)                     ||
+||    Running time : 0.05 minutes                                             ||
+||                                                                            ||
+|| Process BAM file OR1.1-0D_Aligned.sortedByCoord.out.bam...                 ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 62162623                                             ||
+||    Successfully assigned alignments : 34779606 (55.9%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file OR1.2-0D_Aligned.sortedByCoord.out.bam...                 ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 74257451                                             ||
+||    Successfully assigned alignments : 34055995 (45.9%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file OR1.3-0D_Aligned.sortedByCoord.out.bam...                 ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 70565448                                             ||
+||    Successfully assigned alignments : 33616928 (47.6%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file PR1-0D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 77892784                                             ||
+||    Successfully assigned alignments : 35308539 (45.3%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file PR2-0D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 68259737                                             ||
+||    Successfully assigned alignments : 34446587 (50.5%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file PR3-0D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 53947634                                             ||
+||    Successfully assigned alignments : 32868663 (60.9%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file EMR2-0D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 59983413                                             ||
+||    Successfully assigned alignments : 32193655 (53.7%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file EMR3-0D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 70045478                                             ||
+||    Successfully assigned alignments : 32173603 (45.9%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file GMR1-0D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 54456171                                             ||
+||    Successfully assigned alignments : 34163680 (62.7%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file GMR2-0D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 38507092                                             ||
+||    Successfully assigned alignments : 21768338 (56.5%)                     ||
+||    Running time : 0.08 minutes                                             ||
+||                                                                            ||
+|| Process BAM file GMR3-0D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 61876634                                             ||
+||    Successfully assigned alignments : 32751523 (52.9%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file ARG1-0D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 62357320                                             ||
+||    Successfully assigned alignments : 35679296 (57.2%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file ARG2-0D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 32349969                                             ||
+||    Successfully assigned alignments : 14454181 (44.7%)                     ||
+||    Running time : 0.07 minutes                                             ||
+||                                                                            ||
+|| Process BAM file ARG3-0D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 66029836                                             ||
+||    Successfully assigned alignments : 37403010 (56.6%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file ARG1-5D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 60830417                                             ||
+||    Successfully assigned alignments : 32459620 (53.4%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file ARG2-5D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 63523951                                             ||
+||    Successfully assigned alignments : 32259840 (50.8%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file ARG3-5D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 62271154                                             ||
+||    Successfully assigned alignments : 36778372 (59.1%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file KB1-5D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 63402789                                             ||
+||    Successfully assigned alignments : 32633082 (51.5%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file KB2-5D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 56175052                                             ||
+||    Successfully assigned alignments : 31522378 (56.1%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file KB3-5D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 81305831                                             ||
+||    Successfully assigned alignments : 36730749 (45.2%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file OR1.1-5D_Aligned.sortedByCoord.out.bam...                 ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 69822525                                             ||
+||    Successfully assigned alignments : 34517666 (49.4%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file OR1.2-5D_Aligned.sortedByCoord.out.bam...                 ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 65940710                                             ||
+||    Successfully assigned alignments : 37829830 (57.4%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file OR1.3-5D_Aligned.sortedByCoord.out.bam...                 ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 63617443                                             ||
+||    Successfully assigned alignments : 34418430 (54.1%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file GMR1-05D_Aligned.sortedByCoord.out.bam...                 ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 66032171                                             ||
+||    Successfully assigned alignments : 35626095 (54.0%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file GMR2-5D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 67449155                                             ||
+||    Successfully assigned alignments : 34940459 (51.8%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file GMR3-5D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 87673686                                             ||
+||    Successfully assigned alignments : 46922814 (53.5%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file PR1-5D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 60317407                                             ||
+||    Successfully assigned alignments : 33224491 (55.1%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file PR2-5D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 59737573                                             ||
+||    Successfully assigned alignments : 35551463 (59.5%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file PR3-5D_Aligned.sortedByCoord.out.bam...                   ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 60153697                                             ||
+||    Successfully assigned alignments : 31990546 (53.2%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file EMR1-5D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 60837232                                             ||
+||    Successfully assigned alignments : 35001573 (57.5%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file EMR2-5D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 55877382                                             ||
+||    Successfully assigned alignments : 33947634 (60.8%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file EMR3-5D_Aligned.sortedByCoord.out.bam...                  ||
+||    Strand specific : stranded                                              ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 54321030                                             ||
+||    Successfully assigned alignments : 34853818 (64.2%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/mnt/scratch/lemasjoh/L  ||
+|| olium_RNAseq/03_outputs/03_featureCounts/counts_multi.txt.summary"         ||
+||                                                                            ||
+\\============================================================================//
+
+done.
