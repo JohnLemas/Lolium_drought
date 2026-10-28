@@ -1,0 +1,374 @@
+ARG1-0D_Log.final.out:                        Uniquely mapped reads % |	73.59%
+ARG1-0D_Log.final.out:        Number of reads mapped to multiple loci |	5894343
+ARG1-0D_Log.final.out:             % of reads mapped to multiple loci |	15.39%
+ARG1-0D_Log.final.out:        Number of reads mapped to too many loci |	32505
+ARG1-0D_Log.final.out:             % of reads mapped to too many loci |	0.08%
+ARG1-0D_Log.final.out:  Number of reads unmapped: too many mismatches |	125319
+ARG1-0D_Log.final.out:       % of reads unmapped: too many mismatches |	0.33%
+ARG1-0D_Log.final.out:            Number of reads unmapped: too short |	3262344
+ARG1-0D_Log.final.out:                 % of reads unmapped: too short |	8.52%
+ARG1-0D_Log.final.out:                Number of reads unmapped: other |	801803
+ARG1-0D_Log.final.out:                     % of reads unmapped: other |	2.09%
+ARG1-5D_Log.final.out:                        Uniquely mapped reads % |	68.25%
+ARG1-5D_Log.final.out:        Number of reads mapped to multiple loci |	6514344
+ARG1-5D_Log.final.out:             % of reads mapped to multiple loci |	17.14%
+ARG1-5D_Log.final.out:        Number of reads mapped to too many loci |	29264
+ARG1-5D_Log.final.out:             % of reads mapped to too many loci |	0.08%
+ARG1-5D_Log.final.out:  Number of reads unmapped: too many mismatches |	98861
+ARG1-5D_Log.final.out:       % of reads unmapped: too many mismatches |	0.26%
+ARG1-5D_Log.final.out:            Number of reads unmapped: too short |	5099149
+ARG1-5D_Log.final.out:                 % of reads unmapped: too short |	13.41%
+ARG1-5D_Log.final.out:                Number of reads unmapped: other |	326494
+ARG1-5D_Log.final.out:                     % of reads unmapped: other |	0.86%
+ARG2-0D_Log.final.out:                        Uniquely mapped reads % |	70.97%
+ARG2-0D_Log.final.out:        Number of reads mapped to multiple loci |	2964263
+ARG2-0D_Log.final.out:             % of reads mapped to multiple loci |	18.10%
+ARG2-0D_Log.final.out:        Number of reads mapped to too many loci |	18641
+ARG2-0D_Log.final.out:             % of reads mapped to too many loci |	0.11%
+ARG2-0D_Log.final.out:  Number of reads unmapped: too many mismatches |	49351
+ARG2-0D_Log.final.out:       % of reads unmapped: too many mismatches |	0.30%
+ARG2-0D_Log.final.out:            Number of reads unmapped: too short |	1381727
+ARG2-0D_Log.final.out:                 % of reads unmapped: too short |	8.44%
+ARG2-0D_Log.final.out:                Number of reads unmapped: other |	338676
+ARG2-0D_Log.final.out:                     % of reads unmapped: other |	2.07%
+ARG2-5D_Log.final.out:                        Uniquely mapped reads % |	69.58%
+ARG2-5D_Log.final.out:        Number of reads mapped to multiple loci |	6995010
+ARG2-5D_Log.final.out:             % of reads mapped to multiple loci |	20.05%
+ARG2-5D_Log.final.out:        Number of reads mapped to too many loci |	27340
+ARG2-5D_Log.final.out:             % of reads mapped to too many loci |	0.08%
+ARG2-5D_Log.final.out:  Number of reads unmapped: too many mismatches |	104378
+ARG2-5D_Log.final.out:       % of reads unmapped: too many mismatches |	0.30%
+ARG2-5D_Log.final.out:            Number of reads unmapped: too short |	3009579
+ARG2-5D_Log.final.out:                 % of reads unmapped: too short |	8.63%
+ARG2-5D_Log.final.out:                Number of reads unmapped: other |	478621
+ARG2-5D_Log.final.out:                     % of reads unmapped: other |	1.37%
+ARG3-0D_Log.final.out:                        Uniquely mapped reads % |	74.04%
+ARG3-0D_Log.final.out:        Number of reads mapped to multiple loci |	6642597
+ARG3-0D_Log.final.out:             % of reads mapped to multiple loci |	16.25%
+ARG3-0D_Log.final.out:        Number of reads mapped to too many loci |	40861
+ARG3-0D_Log.final.out:             % of reads mapped to too many loci |	0.10%
+ARG3-0D_Log.final.out:  Number of reads unmapped: too many mismatches |	126970
+ARG3-0D_Log.final.out:       % of reads unmapped: too many mismatches |	0.31%
+ARG3-0D_Log.final.out:            Number of reads unmapped: too short |	3190204
+ARG3-0D_Log.final.out:                 % of reads unmapped: too short |	7.81%
+ARG3-0D_Log.final.out:                Number of reads unmapped: other |	610215
+ARG3-0D_Log.final.out:                     % of reads unmapped: other |	1.49%
+ARG3-5D_Log.final.out:                        Uniquely mapped reads % |	72.97%
+ARG3-5D_Log.final.out:        Number of reads mapped to multiple loci |	6627115
+ARG3-5D_Log.final.out:             % of reads mapped to multiple loci |	16.33%
+ARG3-5D_Log.final.out:        Number of reads mapped to too many loci |	30608
+ARG3-5D_Log.final.out:             % of reads mapped to too many loci |	0.08%
+ARG3-5D_Log.final.out:  Number of reads unmapped: too many mismatches |	120854
+ARG3-5D_Log.final.out:       % of reads unmapped: too many mismatches |	0.30%
+ARG3-5D_Log.final.out:            Number of reads unmapped: too short |	3828599
+ARG3-5D_Log.final.out:                 % of reads unmapped: too short |	9.43%
+ARG3-5D_Log.final.out:                Number of reads unmapped: other |	362370
+ARG3-5D_Log.final.out:                     % of reads unmapped: other |	0.89%
+EMR1-5D_Log.final.out:                        Uniquely mapped reads % |	72.16%
+EMR1-5D_Log.final.out:        Number of reads mapped to multiple loci |	6230540
+EMR1-5D_Log.final.out:             % of reads mapped to multiple loci |	15.47%
+EMR1-5D_Log.final.out:        Number of reads mapped to too many loci |	28457
+EMR1-5D_Log.final.out:             % of reads mapped to too many loci |	0.07%
+EMR1-5D_Log.final.out:  Number of reads unmapped: too many mismatches |	155596
+EMR1-5D_Log.final.out:       % of reads unmapped: too many mismatches |	0.39%
+EMR1-5D_Log.final.out:            Number of reads unmapped: too short |	4446977
+EMR1-5D_Log.final.out:                 % of reads unmapped: too short |	11.04%
+EMR1-5D_Log.final.out:                Number of reads unmapped: other |	350563
+EMR1-5D_Log.final.out:                     % of reads unmapped: other |	0.87%
+EMR2-0D_Log.final.out:                        Uniquely mapped reads % |	69.33%
+EMR2-0D_Log.final.out:        Number of reads mapped to multiple loci |	5757449
+EMR2-0D_Log.final.out:             % of reads mapped to multiple loci |	15.37%
+EMR2-0D_Log.final.out:        Number of reads mapped to too many loci |	31653
+EMR2-0D_Log.final.out:             % of reads mapped to too many loci |	0.08%
+EMR2-0D_Log.final.out:  Number of reads unmapped: too many mismatches |	143111
+EMR2-0D_Log.final.out:       % of reads unmapped: too many mismatches |	0.38%
+EMR2-0D_Log.final.out:            Number of reads unmapped: too short |	5036181
+EMR2-0D_Log.final.out:                 % of reads unmapped: too short |	13.44%
+EMR2-0D_Log.final.out:                Number of reads unmapped: other |	521501
+EMR2-0D_Log.final.out:                     % of reads unmapped: other |	1.39%
+EMR2-5D_Log.final.out:                        Uniquely mapped reads % |	76.15%
+EMR2-5D_Log.final.out:        Number of reads mapped to multiple loci |	5297486
+EMR2-5D_Log.final.out:             % of reads mapped to multiple loci |	13.93%
+EMR2-5D_Log.final.out:        Number of reads mapped to too many loci |	27518
+EMR2-5D_Log.final.out:             % of reads mapped to too many loci |	0.07%
+EMR2-5D_Log.final.out:  Number of reads unmapped: too many mismatches |	140924
+EMR2-5D_Log.final.out:       % of reads unmapped: too many mismatches |	0.37%
+EMR2-5D_Log.final.out:            Number of reads unmapped: too short |	3297074
+EMR2-5D_Log.final.out:                 % of reads unmapped: too short |	8.67%
+EMR2-5D_Log.final.out:                Number of reads unmapped: other |	306695
+EMR2-5D_Log.final.out:                     % of reads unmapped: other |	0.81%
+EMR3-0D_Log.final.out:                        Uniquely mapped reads % |	70.31%
+EMR3-0D_Log.final.out:        Number of reads mapped to multiple loci |	6843075
+EMR3-0D_Log.final.out:             % of reads mapped to multiple loci |	17.81%
+EMR3-0D_Log.final.out:        Number of reads mapped to too many loci |	40520
+EMR3-0D_Log.final.out:             % of reads mapped to too many loci |	0.11%
+EMR3-0D_Log.final.out:  Number of reads unmapped: too many mismatches |	124944
+EMR3-0D_Log.final.out:       % of reads unmapped: too many mismatches |	0.33%
+EMR3-0D_Log.final.out:            Number of reads unmapped: too short |	3553722
+EMR3-0D_Log.final.out:                 % of reads unmapped: too short |	9.25%
+EMR3-0D_Log.final.out:                Number of reads unmapped: other |	846431
+EMR3-0D_Log.final.out:                     % of reads unmapped: other |	2.20%
+EMR3-5D_Log.final.out:                        Uniquely mapped reads % |	74.53%
+EMR3-5D_Log.final.out:        Number of reads mapped to multiple loci |	5637102
+EMR3-5D_Log.final.out:             % of reads mapped to multiple loci |	14.47%
+EMR3-5D_Log.final.out:        Number of reads mapped to too many loci |	24714
+EMR3-5D_Log.final.out:             % of reads mapped to too many loci |	0.06%
+EMR3-5D_Log.final.out:  Number of reads unmapped: too many mismatches |	136653
+EMR3-5D_Log.final.out:       % of reads unmapped: too many mismatches |	0.35%
+EMR3-5D_Log.final.out:            Number of reads unmapped: too short |	3877537
+EMR3-5D_Log.final.out:                 % of reads unmapped: too short |	9.95%
+EMR3-5D_Log.final.out:                Number of reads unmapped: other |	247831
+EMR3-5D_Log.final.out:                     % of reads unmapped: other |	0.64%
+GMR1-05D_Log.final.out:                        Uniquely mapped reads % |	74.87%
+GMR1-05D_Log.final.out:        Number of reads mapped to multiple loci |	6587675
+GMR1-05D_Log.final.out:             % of reads mapped to multiple loci |	16.48%
+GMR1-05D_Log.final.out:        Number of reads mapped to too many loci |	41403
+GMR1-05D_Log.final.out:             % of reads mapped to too many loci |	0.10%
+GMR1-05D_Log.final.out:  Number of reads unmapped: too many mismatches |	108700
+GMR1-05D_Log.final.out:       % of reads unmapped: too many mismatches |	0.27%
+GMR1-05D_Log.final.out:            Number of reads unmapped: too short |	2971322
+GMR1-05D_Log.final.out:                 % of reads unmapped: too short |	7.43%
+GMR1-05D_Log.final.out:                Number of reads unmapped: other |	338324
+GMR1-05D_Log.final.out:                     % of reads unmapped: other |	0.85%
+GMR1-0D_Log.final.out:                        Uniquely mapped reads % |	75.72%
+GMR1-0D_Log.final.out:        Number of reads mapped to multiple loci |	4850606
+GMR1-0D_Log.final.out:             % of reads mapped to multiple loci |	12.68%
+GMR1-0D_Log.final.out:        Number of reads mapped to too many loci |	36436
+GMR1-0D_Log.final.out:             % of reads mapped to too many loci |	0.10%
+GMR1-0D_Log.final.out:  Number of reads unmapped: too many mismatches |	112990
+GMR1-0D_Log.final.out:       % of reads unmapped: too many mismatches |	0.30%
+GMR1-0D_Log.final.out:            Number of reads unmapped: too short |	3551879
+GMR1-0D_Log.final.out:                 % of reads unmapped: too short |	9.29%
+GMR1-0D_Log.final.out:                Number of reads unmapped: other |	731549
+GMR1-0D_Log.final.out:                     % of reads unmapped: other |	1.91%
+GMR2-0D_Log.final.out:                        Uniquely mapped reads % |	74.46%
+GMR2-0D_Log.final.out:        Number of reads mapped to multiple loci |	3748795
+GMR2-0D_Log.final.out:             % of reads mapped to multiple loci |	15.28%
+GMR2-0D_Log.final.out:        Number of reads mapped to too many loci |	22928
+GMR2-0D_Log.final.out:             % of reads mapped to too many loci |	0.09%
+GMR2-0D_Log.final.out:  Number of reads unmapped: too many mismatches |	74515
+GMR2-0D_Log.final.out:       % of reads unmapped: too many mismatches |	0.30%
+GMR2-0D_Log.final.out:            Number of reads unmapped: too short |	1912424
+GMR2-0D_Log.final.out:                 % of reads unmapped: too short |	7.80%
+GMR2-0D_Log.final.out:                Number of reads unmapped: other |	506905
+GMR2-0D_Log.final.out:                     % of reads unmapped: other |	2.07%
+GMR2-5D_Log.final.out:                        Uniquely mapped reads % |	73.44%
+GMR2-5D_Log.final.out:        Number of reads mapped to multiple loci |	7013941
+GMR2-5D_Log.final.out:             % of reads mapped to multiple loci |	18.01%
+GMR2-5D_Log.final.out:        Number of reads mapped to too many loci |	27078
+GMR2-5D_Log.final.out:             % of reads mapped to too many loci |	0.07%
+GMR2-5D_Log.final.out:  Number of reads unmapped: too many mismatches |	106065
+GMR2-5D_Log.final.out:       % of reads unmapped: too many mismatches |	0.27%
+GMR2-5D_Log.final.out:            Number of reads unmapped: too short |	2852388
+GMR2-5D_Log.final.out:                 % of reads unmapped: too short |	7.33%
+GMR2-5D_Log.final.out:                Number of reads unmapped: other |	343673
+GMR2-5D_Log.final.out:                     % of reads unmapped: other |	0.88%
+GMR3-0D_Log.final.out:                        Uniquely mapped reads % |	72.95%
+GMR3-0D_Log.final.out:        Number of reads mapped to multiple loci |	6496456
+GMR3-0D_Log.final.out:             % of reads mapped to multiple loci |	18.19%
+GMR3-0D_Log.final.out:        Number of reads mapped to too many loci |	23698
+GMR3-0D_Log.final.out:             % of reads mapped to too many loci |	0.07%
+GMR3-0D_Log.final.out:  Number of reads unmapped: too many mismatches |	101075
+GMR3-0D_Log.final.out:       % of reads unmapped: too many mismatches |	0.28%
+GMR3-0D_Log.final.out:            Number of reads unmapped: too short |	2534121
+GMR3-0D_Log.final.out:                 % of reads unmapped: too short |	7.09%
+GMR3-0D_Log.final.out:                Number of reads unmapped: other |	508562
+GMR3-0D_Log.final.out:                     % of reads unmapped: other |	1.42%
+GMR3-5D_Log.final.out:                        Uniquely mapped reads % |	67.61%
+GMR3-5D_Log.final.out:        Number of reads mapped to multiple loci |	8972168
+GMR3-5D_Log.final.out:             % of reads mapped to multiple loci |	23.88%
+GMR3-5D_Log.final.out:        Number of reads mapped to too many loci |	26959
+GMR3-5D_Log.final.out:             % of reads mapped to too many loci |	0.07%
+GMR3-5D_Log.final.out:  Number of reads unmapped: too many mismatches |	80920
+GMR3-5D_Log.final.out:       % of reads unmapped: too many mismatches |	0.22%
+GMR3-5D_Log.final.out:            Number of reads unmapped: too short |	2783982
+GMR3-5D_Log.final.out:                 % of reads unmapped: too short |	7.41%
+GMR3-5D_Log.final.out:                Number of reads unmapped: other |	301393
+GMR3-5D_Log.final.out:                     % of reads unmapped: other |	0.80%
+KB1-5D_Log.final.out:                        Uniquely mapped reads % |	71.74%
+KB1-5D_Log.final.out:        Number of reads mapped to multiple loci |	6328343
+KB1-5D_Log.final.out:             % of reads mapped to multiple loci |	16.22%
+KB1-5D_Log.final.out:        Number of reads mapped to too many loci |	33656
+KB1-5D_Log.final.out:             % of reads mapped to too many loci |	0.09%
+KB1-5D_Log.final.out:  Number of reads unmapped: too many mismatches |	128490
+KB1-5D_Log.final.out:       % of reads unmapped: too many mismatches |	0.33%
+KB1-5D_Log.final.out:            Number of reads unmapped: too short |	4029220
+KB1-5D_Log.final.out:                 % of reads unmapped: too short |	10.33%
+KB1-5D_Log.final.out:                Number of reads unmapped: other |	509820
+KB1-5D_Log.final.out:                     % of reads unmapped: other |	1.31%
+KB2-0D_Log.final.out:                        Uniquely mapped reads % |	70.19%
+KB2-0D_Log.final.out:        Number of reads mapped to multiple loci |	6809243
+KB2-0D_Log.final.out:             % of reads mapped to multiple loci |	17.51%
+KB2-0D_Log.final.out:        Number of reads mapped to too many loci |	42681
+KB2-0D_Log.final.out:             % of reads mapped to too many loci |	0.11%
+KB2-0D_Log.final.out:  Number of reads unmapped: too many mismatches |	139195
+KB2-0D_Log.final.out:       % of reads unmapped: too many mismatches |	0.36%
+KB2-0D_Log.final.out:            Number of reads unmapped: too short |	4060982
+KB2-0D_Log.final.out:                 % of reads unmapped: too short |	10.44%
+KB2-0D_Log.final.out:                Number of reads unmapped: other |	543487
+KB2-0D_Log.final.out:                     % of reads unmapped: other |	1.40%
+KB2-5D_Log.final.out:                        Uniquely mapped reads % |	73.64%
+KB2-5D_Log.final.out:        Number of reads mapped to multiple loci |	5435370
+KB2-5D_Log.final.out:             % of reads mapped to multiple loci |	14.55%
+KB2-5D_Log.final.out:        Number of reads mapped to too many loci |	27014
+KB2-5D_Log.final.out:             % of reads mapped to too many loci |	0.07%
+KB2-5D_Log.final.out:  Number of reads unmapped: too many mismatches |	133788
+KB2-5D_Log.final.out:       % of reads unmapped: too many mismatches |	0.36%
+KB2-5D_Log.final.out:            Number of reads unmapped: too short |	3915405
+KB2-5D_Log.final.out:                 % of reads unmapped: too short |	10.48%
+KB2-5D_Log.final.out:                Number of reads unmapped: other |	337298
+KB2-5D_Log.final.out:                     % of reads unmapped: other |	0.90%
+KB3-0D_Log.final.out:                        Uniquely mapped reads % |	71.67%
+KB3-0D_Log.final.out:        Number of reads mapped to multiple loci |	2757447
+KB3-0D_Log.final.out:             % of reads mapped to multiple loci |	15.69%
+KB3-0D_Log.final.out:        Number of reads mapped to too many loci |	16986
+KB3-0D_Log.final.out:             % of reads mapped to too many loci |	0.10%
+KB3-0D_Log.final.out:  Number of reads unmapped: too many mismatches |	71870
+KB3-0D_Log.final.out:       % of reads unmapped: too many mismatches |	0.41%
+KB3-0D_Log.final.out:            Number of reads unmapped: too short |	1833742
+KB3-0D_Log.final.out:                 % of reads unmapped: too short |	10.43%
+KB3-0D_Log.final.out:                Number of reads unmapped: other |	299979
+KB3-0D_Log.final.out:                     % of reads unmapped: other |	1.71%
+KB3-5D_Log.final.out:                        Uniquely mapped reads % |	68.92%
+KB3-5D_Log.final.out:        Number of reads mapped to multiple loci |	7656117
+KB3-5D_Log.final.out:             % of reads mapped to multiple loci |	19.11%
+KB3-5D_Log.final.out:        Number of reads mapped to too many loci |	39816
+KB3-5D_Log.final.out:             % of reads mapped to too many loci |	0.10%
+KB3-5D_Log.final.out:  Number of reads unmapped: too many mismatches |	129388
+KB3-5D_Log.final.out:       % of reads unmapped: too many mismatches |	0.32%
+KB3-5D_Log.final.out:            Number of reads unmapped: too short |	4032351
+KB3-5D_Log.final.out:                 % of reads unmapped: too short |	10.06%
+KB3-5D_Log.final.out:                Number of reads unmapped: other |	596472
+KB3-5D_Log.final.out:                     % of reads unmapped: other |	1.49%
+OR1.1-0D_Log.final.out:                        Uniquely mapped reads % |	75.13%
+OR1.1-0D_Log.final.out:        Number of reads mapped to multiple loci |	5642177
+OR1.1-0D_Log.final.out:             % of reads mapped to multiple loci |	13.89%
+OR1.1-0D_Log.final.out:        Number of reads mapped to too many loci |	51892
+OR1.1-0D_Log.final.out:             % of reads mapped to too many loci |	0.13%
+OR1.1-0D_Log.final.out:  Number of reads unmapped: too many mismatches |	169851
+OR1.1-0D_Log.final.out:       % of reads unmapped: too many mismatches |	0.42%
+OR1.1-0D_Log.final.out:            Number of reads unmapped: too short |	3715505
+OR1.1-0D_Log.final.out:                 % of reads unmapped: too short |	9.15%
+OR1.1-0D_Log.final.out:                Number of reads unmapped: other |	521861
+OR1.1-0D_Log.final.out:                     % of reads unmapped: other |	1.29%
+OR1.1-5D_Log.final.out:                        Uniquely mapped reads % |	68.82%
+OR1.1-5D_Log.final.out:        Number of reads mapped to multiple loci |	7986439
+OR1.1-5D_Log.final.out:             % of reads mapped to multiple loci |	20.98%
+OR1.1-5D_Log.final.out:        Number of reads mapped to too many loci |	31435
+OR1.1-5D_Log.final.out:             % of reads mapped to too many loci |	0.08%
+OR1.1-5D_Log.final.out:  Number of reads unmapped: too many mismatches |	142958
+OR1.1-5D_Log.final.out:       % of reads unmapped: too many mismatches |	0.38%
+OR1.1-5D_Log.final.out:            Number of reads unmapped: too short |	3421150
+OR1.1-5D_Log.final.out:                 % of reads unmapped: too short |	8.99%
+OR1.1-5D_Log.final.out:                Number of reads unmapped: other |	290121
+OR1.1-5D_Log.final.out:                     % of reads unmapped: other |	0.76%
+OR1.2-0D_Log.final.out:                        Uniquely mapped reads % |	69.77%
+OR1.2-0D_Log.final.out:        Number of reads mapped to multiple loci |	8115806
+OR1.2-0D_Log.final.out:             % of reads mapped to multiple loci |	19.84%
+OR1.2-0D_Log.final.out:        Number of reads mapped to too many loci |	37396
+OR1.2-0D_Log.final.out:             % of reads mapped to too many loci |	0.09%
+OR1.2-0D_Log.final.out:  Number of reads unmapped: too many mismatches |	159956
+OR1.2-0D_Log.final.out:       % of reads unmapped: too many mismatches |	0.39%
+OR1.2-0D_Log.final.out:            Number of reads unmapped: too short |	3562549
+OR1.2-0D_Log.final.out:                 % of reads unmapped: too short |	8.71%
+OR1.2-0D_Log.final.out:                Number of reads unmapped: other |	487724
+OR1.2-0D_Log.final.out:                     % of reads unmapped: other |	1.19%
+OR1.2-5D_Log.final.out:                        Uniquely mapped reads % |	72.00%
+OR1.2-5D_Log.final.out:        Number of reads mapped to multiple loci |	7448217
+OR1.2-5D_Log.final.out:             % of reads mapped to multiple loci |	18.15%
+OR1.2-5D_Log.final.out:        Number of reads mapped to too many loci |	29711
+OR1.2-5D_Log.final.out:             % of reads mapped to too many loci |	0.07%
+OR1.2-5D_Log.final.out:  Number of reads unmapped: too many mismatches |	166796
+OR1.2-5D_Log.final.out:       % of reads unmapped: too many mismatches |	0.41%
+OR1.2-5D_Log.final.out:            Number of reads unmapped: too short |	3538835
+OR1.2-5D_Log.final.out:                 % of reads unmapped: too short |	8.62%
+OR1.2-5D_Log.final.out:                Number of reads unmapped: other |	310691
+OR1.2-5D_Log.final.out:                     % of reads unmapped: other |	0.76%
+OR1.3-0D_Log.final.out:                        Uniquely mapped reads % |	69.14%
+OR1.3-0D_Log.final.out:        Number of reads mapped to multiple loci |	7407573
+OR1.3-0D_Log.final.out:             % of reads mapped to multiple loci |	19.02%
+OR1.3-0D_Log.final.out:        Number of reads mapped to too many loci |	37973
+OR1.3-0D_Log.final.out:             % of reads mapped to too many loci |	0.10%
+OR1.3-0D_Log.final.out:  Number of reads unmapped: too many mismatches |	148060
+OR1.3-0D_Log.final.out:       % of reads unmapped: too many mismatches |	0.38%
+OR1.3-0D_Log.final.out:            Number of reads unmapped: too short |	3792310
+OR1.3-0D_Log.final.out:                 % of reads unmapped: too short |	9.74%
+OR1.3-0D_Log.final.out:                Number of reads unmapped: other |	628888
+OR1.3-0D_Log.final.out:                     % of reads unmapped: other |	1.62%
+OR1.3-5D_Log.final.out:                        Uniquely mapped reads % |	68.20%
+OR1.3-5D_Log.final.out:        Number of reads mapped to multiple loci |	6678246
+OR1.3-5D_Log.final.out:             % of reads mapped to multiple loci |	16.53%
+OR1.3-5D_Log.final.out:        Number of reads mapped to too many loci |	40847
+OR1.3-5D_Log.final.out:             % of reads mapped to too many loci |	0.10%
+OR1.3-5D_Log.final.out:  Number of reads unmapped: too many mismatches |	146639
+OR1.3-5D_Log.final.out:       % of reads unmapped: too many mismatches |	0.36%
+OR1.3-5D_Log.final.out:            Number of reads unmapped: too short |	5628571
+OR1.3-5D_Log.final.out:                 % of reads unmapped: too short |	13.93%
+OR1.3-5D_Log.final.out:                Number of reads unmapped: other |	351875
+OR1.3-5D_Log.final.out:                     % of reads unmapped: other |	0.87%
+PR1-0D_Log.final.out:                        Uniquely mapped reads % |	69.99%
+PR1-0D_Log.final.out:        Number of reads mapped to multiple loci |	7871626
+PR1-0D_Log.final.out:             % of reads mapped to multiple loci |	19.25%
+PR1-0D_Log.final.out:        Number of reads mapped to too many loci |	35342
+PR1-0D_Log.final.out:             % of reads mapped to too many loci |	0.09%
+PR1-0D_Log.final.out:  Number of reads unmapped: too many mismatches |	162227
+PR1-0D_Log.final.out:       % of reads unmapped: too many mismatches |	0.40%
+PR1-0D_Log.final.out:            Number of reads unmapped: too short |	3515362
+PR1-0D_Log.final.out:                 % of reads unmapped: too short |	8.60%
+PR1-0D_Log.final.out:                Number of reads unmapped: other |	688043
+PR1-0D_Log.final.out:                     % of reads unmapped: other |	1.68%
+PR1-5D_Log.final.out:                        Uniquely mapped reads % |	71.02%
+PR1-5D_Log.final.out:        Number of reads mapped to multiple loci |	5863063
+PR1-5D_Log.final.out:             % of reads mapped to multiple loci |	14.42%
+PR1-5D_Log.final.out:        Number of reads mapped to too many loci |	33826
+PR1-5D_Log.final.out:             % of reads mapped to too many loci |	0.08%
+PR1-5D_Log.final.out:  Number of reads unmapped: too many mismatches |	137818
+PR1-5D_Log.final.out:       % of reads unmapped: too many mismatches |	0.34%
+PR1-5D_Log.final.out:            Number of reads unmapped: too short |	5367026
+PR1-5D_Log.final.out:                 % of reads unmapped: too short |	13.20%
+PR1-5D_Log.final.out:                Number of reads unmapped: other |	380172
+PR1-5D_Log.final.out:                     % of reads unmapped: other |	0.94%
+PR2-0D_Log.final.out:                        Uniquely mapped reads % |	73.20%
+PR2-0D_Log.final.out:        Number of reads mapped to multiple loci |	6540185
+PR2-0D_Log.final.out:             % of reads mapped to multiple loci |	16.05%
+PR2-0D_Log.final.out:        Number of reads mapped to too many loci |	31201
+PR2-0D_Log.final.out:             % of reads mapped to too many loci |	0.08%
+PR2-0D_Log.final.out:  Number of reads unmapped: too many mismatches |	162462
+PR2-0D_Log.final.out:       % of reads unmapped: too many mismatches |	0.40%
+PR2-0D_Log.final.out:            Number of reads unmapped: too short |	3626947
+PR2-0D_Log.final.out:                 % of reads unmapped: too short |	8.90%
+PR2-0D_Log.final.out:                Number of reads unmapped: other |	558936
+PR2-0D_Log.final.out:                     % of reads unmapped: other |	1.37%
+PR2-5D_Log.final.out:                        Uniquely mapped reads % |	71.91%
+PR2-5D_Log.final.out:        Number of reads mapped to multiple loci |	6174238
+PR2-5D_Log.final.out:             % of reads mapped to multiple loci |	15.45%
+PR2-5D_Log.final.out:        Number of reads mapped to too many loci |	29674
+PR2-5D_Log.final.out:             % of reads mapped to too many loci |	0.07%
+PR2-5D_Log.final.out:  Number of reads unmapped: too many mismatches |	130476
+PR2-5D_Log.final.out:       % of reads unmapped: too many mismatches |	0.33%
+PR2-5D_Log.final.out:            Number of reads unmapped: too short |	4611768
+PR2-5D_Log.final.out:                 % of reads unmapped: too short |	11.54%
+PR2-5D_Log.final.out:                Number of reads unmapped: other |	275248
+PR2-5D_Log.final.out:                     % of reads unmapped: other |	0.69%
+PR3-0D_Log.final.out:                        Uniquely mapped reads % |	76.55%
+PR3-0D_Log.final.out:        Number of reads mapped to multiple loci |	4432391
+PR3-0D_Log.final.out:             % of reads mapped to multiple loci |	11.67%
+PR3-0D_Log.final.out:        Number of reads mapped to too many loci |	35080
+PR3-0D_Log.final.out:             % of reads mapped to too many loci |	0.09%
+PR3-0D_Log.final.out:  Number of reads unmapped: too many mismatches |	152799
+PR3-0D_Log.final.out:       % of reads unmapped: too many mismatches |	0.40%
+PR3-0D_Log.final.out:            Number of reads unmapped: too short |	3562544
+PR3-0D_Log.final.out:                 % of reads unmapped: too short |	9.38%
+PR3-0D_Log.final.out:                Number of reads unmapped: other |	726423
+PR3-0D_Log.final.out:                     % of reads unmapped: other |	1.91%
+PR3-5D_Log.final.out:                        Uniquely mapped reads % |	71.85%
+PR3-5D_Log.final.out:        Number of reads mapped to multiple loci |	6128112
+PR3-5D_Log.final.out:             % of reads mapped to multiple loci |	16.19%
+PR3-5D_Log.final.out:        Number of reads mapped to too many loci |	44031
+PR3-5D_Log.final.out:             % of reads mapped to too many loci |	0.12%
+PR3-5D_Log.final.out:  Number of reads unmapped: too many mismatches |	146126
+PR3-5D_Log.final.out:       % of reads unmapped: too many mismatches |	0.39%
+PR3-5D_Log.final.out:            Number of reads unmapped: too short |	3973531
+PR3-5D_Log.final.out:                 % of reads unmapped: too short |	10.50%
+PR3-5D_Log.final.out:                Number of reads unmapped: other |	361874
+PR3-5D_Log.final.out:                     % of reads unmapped: other |	0.96%
