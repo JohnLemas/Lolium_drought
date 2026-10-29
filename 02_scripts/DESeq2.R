@@ -10,7 +10,7 @@ for (package in packages) {
 }
 
 setwd("/Users/jmlemas/Library/CloudStorage/OneDrive-MichiganStateUniversity/Dissertation/Chapter3/Lolium_samples/RNA_seq")
-out <- "03_outputs/04_DESeq2/"
+out <- "03_outputs/04_DESeq2"
 
 alpha   <- 0.05   # FDR
 lfc_cut <- 1      # post-hoc |log2FC| cut (2 is very strict for interaction terms)
@@ -55,7 +55,7 @@ dds <- DESeqDataSetFromMatrix(cts, coldata,
 keep <- rowSums(counts(dds) >= 10) >= 5   # >= smallest group size (S untreated n = 5)
 dds <- dds[keep, ]
 dds <- DESeq(dds)
-saveRDS(dds, paste0(out, "dds_int.rds"))
+saveRDS(dds, file.path(out, "dds_int.rds"))
 print(resultsNames(dds))
 
 # ---------------- QC: look at PR1-0D and population structure ----------------
@@ -65,7 +65,7 @@ pca$population <- coldata$population
 pca$name <- rownames(pca)
 p <- ggplot(pca, aes(PC1, PC2, colour = trt, shape = status)) +
   geom_point(size = 3) + geom_text(aes(label = name), size = 2, vjust = -1)
-ggsave(paste0(out, "pca_vst.pdf"), p, width = 8, height = 6)
+ggsave(file.path(out, "pca_vst.pdf"), p, width = 8, height = 6)
 
 # ---------------- Contrasts ----------------
 run_contrast <- function(spec, label) {
@@ -117,7 +117,7 @@ candidates <- list(
   shared_drought                = intersect(s_dR, s_dS)
 )
 print(lengths(candidates))
-saveRDS(candidates, paste0(out, "candidate_gene_sets.rds"))
+saveRDS(candidates, file.path(out, "candidate_gene_sets.rds"))
 
 # ---------------- Robustness across populations ----------------
 # Status is tested with only 2 S vs 4 R populations; replicates within a population
