@@ -1,320 +1,146 @@
 #######################################
+# DESeq2: herbicide resistance (R/S) x drought, Lolium
+# Revised template based on DESeq2.R
+#######################################
 
-#__Date:__ 5-14-2026
-#__Author:__ John Lemas
-# List of packages required
-packages <- c("DESeq2",
-              "tidyverse")
-
-# if not installed, install and load it
+packages <- c("DESeq2", "tidyverse", "ashr")
 for (package in packages) {
-  if (!(package %in% rownames(installed.packages()))) {
-    BiocManager::install(package)
-  }
+  if (!(package %in% rownames(installed.packages()))) BiocManager::install(package)
   library(package, character.only = TRUE)
 }
 
-#################################################
-
-# Set the working directory:
-message("setting working directory")
 setwd("/Users/jmlemas/Library/CloudStorage/OneDrive-MichiganStateUniversity/Dissertation/Chapter3/Lolium_samples/RNA_seq")
+out <- "03_outputs/04_DESeq2/"
 
-# ===========>------- Full dataset: design ~ gen + trt --------<=========== #
+alpha   <- 0.05   # FDR
+lfc_cut <- 1      # post-hoc |log2FC| cut (2 is very strict for interaction terms)
 
-# Import the counts data file
-message("importing counts from featureCounts")
-countsData <- read.table(file = "03_outputs/03_featureCounts/counts_multi.txt", header = FALSE, row.names = 1, skip = 2)
+# ---------------- Metadata ----------------
+meta <- read.table("01_inputs/Lol_metadata.txt", header = FALSE, sep = "\t")
+colnames(meta) <- c("fasta1", "name1", "rep", "trt", "status", "species", "achl")  # no hyphen in achl
+rownames(meta) <- meta$name1
 
-# Read in the metadata
-message("importing metadata")
-metadata_full <- read.table(file = "01_inputs/Lol_metadata.txt", header = FALSE)
+# population = line ID without replicate number (KB, OR, PR, EMR, GMR, ARG)
+meta$population <- sub("[0-9]+(\\.[0-9]+)?-.*$", "", meta$name1)
 
-# Add headers
-colnames(metadata_full) <- c("fasta1", "name1", "rep", "trt", "status", "species", "a-chl")
+coldata <- meta[, c("status", "trt", "species", "population", "rep", "achl")]
+coldata$status  <- factor(coldata$status,  levels = c("S", "R"))          # S = reference
+coldata$trt     <- factor(coldata$trt,     levels = c("untrt", "trt"))    # untrt = reference
+coldata$species <- factor(coldata$species, levels = c("LOLMU", "LOLRI"))
+coldata$population <- factor(coldata$population)
+coldata$rep <- factor(coldata$rep)
 
-# Now add headers for the counts file. the final columns should be the samples in order from the metadata
-as.vector(metadata_full$name1)
-colnames(countsData) <- c("chr", "start", "stop", "strand", "length", as.vector(metadata_full$name1))
+# Sanity check of the design
+print(with(coldata, table(population, trt)))
+print(with(coldata, table(status, species, trt)))
 
-################### COUNT MATRIX INPUT ###################
-# Subset the countsData for just the samples
-# dim() spits out rows first [1] and columns second [2]
+# ---------------- Counts ----------------
+countsData <- read.table("03_outputs/03_featureCounts/counts_multi.txt",
+                         header = FALSE, row.names = 1, skip = 2)
+n_samples <- ncol(countsData) - 5
+if (n_samples != nrow(meta)) {
+  stop("counts has ", n_samples, " sample columns but metadata has ", nrow(meta),
+       " rows. Match columns to metadata by BAM name before continuing.")
+}
+colnames(countsData) <- c("chr", "start", "stop", "strand", "length", meta$name1)
+cts <- round(as.matrix(countsData[, 6:ncol(countsData)]))
+stopifnot(all(rownames(coldata) == colnames(cts)))
 
-message("generateing cts and coldata")
+# ---------------- Model ----------------
+# species is crossed with status, so it is adjusted for.
+# Coefficients: species_LOLRI_vs_LOLMU, status_R_vs_S, trt_trt_vs_untrt, statusR.trttrt
+dds <- DESeqDataSetFromMatrix(cts, coldata,
+                              design = ~ species + status + trt + status:trt)
 
-countColNum <- dim(countsData)[2]
+keep <- rowSums(counts(dds) >= 10) >= 5   # >= smallest group size (S untreated n = 5)
+dds <- dds[keep, ]
+dds <- DESeq(dds)
+saveRDS(dds, paste0(out, "dds_int.rds"))
+print(resultsNames(dds))
 
-head(countsData[,6:countColNum])
-dim(countsData[,6:countColNum])
+# ---------------- QC: look at PR1-0D and population structure ----------------
+vsd <- vst(dds, blind = TRUE)
+pca <- plotPCA(vsd, intgroup = c("trt", "status", "species"), returnData = TRUE)
+pca$population <- coldata$population
+pca$name <- rownames(pca)
+p <- ggplot(pca, aes(PC1, PC2, colour = trt, shape = status)) +
+  geom_point(size = 3) + geom_text(aes(label = name), size = 2, vjust = -1)
+ggsave(paste0(out, "pca_vst.pdf"), p, width = 8, height = 6)
 
-# Ensure that this will capture all of the data!
-# We only want the sample names and the counts for each gene. Save just the subset as an object called cts:
-cts <- as.matrix(countsData[,6:countColNum])
+# ---------------- Contrasts ----------------
+run_contrast <- function(spec, label) {
+  if (is.character(spec)) {
+    res <- results(dds, name = spec, alpha = alpha)
+    shr <- lfcShrink(dds, coef = spec, res = res, type = "ashr")
+  } else {
+    res <- results(dds, contrast = spec, alpha = alpha)
+    shr <- lfcShrink(dds, contrast = spec, res = res, type = "ashr")
+  }
+  message("---- ", label)
+  print(summary(res))
+  shr$padj <- res$padj   # keep the test's padj, shrunken LFC for effect size
+  df  <- as.data.frame(shr)
+  sig <- df[which(df$padj < alpha & abs(df$log2FoldChange) > lfc_cut), ]
+  sig <- sig[order(sig$padj), ]
+  write.table(df,  paste0(out, "all_",  label, ".txt"), quote = FALSE, sep = "\t")
+  write.table(sig, paste0(out, "sig_",  label, ".txt"), quote = FALSE, sep = "\t")
+  saveRDS(shr, paste0(out, "res_", label, ".rds"))
+  invisible(df)
+}
 
-# Used -M --fraction in featurecounts to deal with multimapping, so wee need to round the counts data to whole numbers
-cts <- round(cts)
-
-# Row names and col names need to be identical between cts and metadata
-rownames(metadata_full) <- metadata_full$name1
-
-# create DESeq2 input and designate factors
-# these variables can be used in plots later
-coldata <- metadata_full[,c("status","trt","rep",""a-chl","species")]
-coldata$status <- as.factor(coldata$status)
-coldata$trt <- as.factor(coldata$trt)
-coldata$rep <- as.factor(coldata$rep)
-coldata$a-chl <- as.factor(coldata$a-chl)
-coldata$spec <- as.factor(coldata$spec)
-str(coldata)
-
-# Double check that row names and column names are identical:
-rownames(coldata)
-colnames(cts)
-
-# double check naming before building dds
-all(rownames(coldata) == colnames(cts))
-
-message("saving cts and coldata")
-
-# save these tables as resources in the GitHub repo
-write.table(coldata, file = "03_outputs/04_DESeq2/coldata.txt", 
-            quote = FALSE, sep = "\t", col.names = FALSE)
-
-write.table(cts, file = "03_outputs/04_DESeq2/cts.txt", 
-            quote = FALSE, sep = "\t")
-
-# Building dds objects for full dataset and for interaction design
-# Notes on Design: additive effects look at first item while controlling for the effects of the second item, and vise versa
-# If you want to pull specific contrasts from different treatment groups (ie 'results()'), make sure they're in the design
-
-message("building dds object for full treatment effect")
-message("design = ~ status + trt")
-
-dds_full <- DESeqDataSetFromMatrix(countData = cts,
-                              colData = coldata,
-                              design = ~ status + trt)
-
-message("building dds object with interaction design")
-message("design = ~ status + trt + status:trt")
-
-dds_int <- DESeqDataSetFromMatrix(countData = cts,
-                              colData = coldata,
-                              design = ~ status + trt + status:trt)
-
-# Alter the below factor levels based on experiment design
-# These should be the values in coldata
-
-message("defining factor levels for both dds objects")
-
-dds_full$status <- factor(dds_full$status, levels = c("Control","Drought","Herbicide"))
-dds_full$trt  <- factor(dds_full$trt,  levels = c("Control","Pinoxaden"))
-
-dds_int$status <- factor(dds_int$status, levels = c("Control","Drought","Herbicide"))
-dds_int$trt  <- factor(dds_int$trt,  levels = c("Control","Pinoxaden"))
-
-# this code is selecting the genes that have normalized counts of more than 10 in at least three samples (replicate groups)
-
-message("subsetting for counts greater than 10 for at least three reps")
-
-keep <- rowSums(counts(dds_full) >= 10) >= 3
-dds_full <- dds_full[keep, ]
-
-keep <- rowSums(counts(dds_int) >= 10) >= 3
-dds_int <- dds_int[keep, ]
-
-# PERFORM DESEQ2 analysis:
-
-message("preforming full analysis")
-dds_full <- DESeq(dds_full)
-
-# Save the main dds object
-saveRDS(dds_full, file = "03_outputs/04_DESeq2/dds_full.rds")
-
-message("preforming interaction analysis")
-dds_int <- DESeq(dds_int)
-
-# Save the interaction dds object
-saveRDS(dds_int, file = "03_outputs/04_DESeq2/dds_int.rds")
-
-# ===========>------- Generating Results --------<=========== #
-
-# in contrast, the last item is the baseline
-# this won't work if the contrast you're running wasn't in the initial design
-# Main questions:
-# 1. What genes are differentially expressed between the two treatments in all samples?
-# 2. What genes are differentially expressed between the two treatments in each line?
-# 3. Are there differences in expression between the untreated lines?
-
-message("building results for treatment contrast using full dds object")
-message('contrast=c("trt", "Pinoxaden", "Control")')
-message("lfcThreshold: 2, alpha: 0.01")
-
-res_trt <- results(dds_full,
-                   lfcThreshold = 2,
-                   alpha = 0.01,
-                   contrast=c("trt", "Pinoxaden", "Control"))
-
-summary(res_trt)
-
-### Significant genes for line contrast
-sig_trt_genes <- as.data.frame(res_trt)
-sig_trt_genes <- sig_trt_genes[which(sig_trt_genes$padj < 0.01 & abs(sig_trt_genes$log2FoldChange) > 2), ]
-sig_trt_genes <- sig_trt_genes[order(sig_trt_genes$padj), ]
-
-# View them
-print(sig_trt_genes)
-
-# save them
-write.table(sig_trt_genes, file = "03_outputs/04_DESeq2/sig_trt_genes.txt", 
-            quote = FALSE, sep = "\t")
-
-# Save the full results object
-saveRDS(res_trt, file = "03_outputs/04_DESeq2/res_trt.rds")
-
-# --------<======= Drought Stressed Lines ==========>---------- #
-
-message("generating results for the interaction dds object")
-message('name = "lineDrought.trtPinoxaden"')
-message("alpha: 0.05")
-
-res_interaction_drt <- results(
-  dds_int, 
-  name = "lineDrought.trtPinoxaden", 
-  alpha = 0.05
+contrasts <- list(
+  # 1. Drought response in susceptible plants
+  drought_in_S      = "trt_trt_vs_untrt",
+  # 2. Drought response in resistant plants
+  drought_in_R      = list(c("trt_trt_vs_untrt", "statusR.trttrt")),
+  # 3. KEY: does the drought response differ between R and S? (interaction)
+  interaction_RxS   = "statusR.trttrt",
+  # 4. Constitutive R vs S differences (untreated)
+  baseline_R_vs_S   = "status_R_vs_S",
+  # 5. R vs S under drought
+  drought_R_vs_S    = list(c("status_R_vs_S", "statusR.trttrt"))
 )
 
-summary(res_interaction_drt)
+res_list <- imap(contrasts, ~ run_contrast(.x, .y))
 
-# Log fold shrinkage (more robust results)
-# The above results are not following the strict H0 of lfc > |±2|
-# Using LFC shrinkage will give more robust results, especially for low count genes
-# Following up with the post-hoc thresholds below will give a more accurate list of significant genes
-# that may have been missed in the strict H0 test above. This is especially important for TE expression
+# ---------------- Candidate classes ----------------
+get_sig <- function(df) rownames(df)[which(df$padj < alpha & abs(df$log2FoldChange) > lfc_cut)]
+s_int  <- get_sig(res_list$interaction_RxS)
+s_base <- get_sig(res_list$baseline_R_vs_S)
+s_dR   <- get_sig(res_list$drought_in_R)
+s_dS   <- get_sig(res_list$drought_in_S)
 
-message("preforming log fold shrinkage")
-
-resLFC_interaction_drt <- lfcShrink(dds_int,
-                              res = res_interaction_drt,
-                              type = "ashr")
-
-summary(resLFC_interaction_drt)
-
-### Significant genes for drought lineage contrast
-message("generating significant genes for the treated drought lineage")
-
-sig_drt_genes <- as.data.frame(resLFC_interaction_drt)
-sig_drt_genes <- sig_drt_genes[which(sig_drt_genes$padj < 0.01 &
-                                      abs(sig_drt_genes$log2FoldChange) > 2), ]
-sig_drt_genes <- sig_drt_genes[order(sig_drt_genes$padj), ]
-
-# View them
-print(sig_drt_genes)
-
-# save them
-write.table(sig_drt_genes, file = "03_outputs/04_DESeq2/sig_drt_genes.txt", 
-            quote = FALSE, sep = "\t")
-
-# -------<======= Herbicide Stressed Lines ========>-------- #
-
-message("generating results for the treated herbicide lineage")
-message('name = "lineHerbicide.trtPinoxaden"')
-message("alpha: 0.05")
-
-res_interaction_hrb <- results(
-  dds_int,
-  name = "lineHerbicide.trtPinoxaden",
-  alpha = 0.05
+candidates <- list(
+  differential_drought_response = s_int,                   # R responds differently than S
+  constitutive_and_responsive   = intersect(s_base, s_dR), # R-baseline difference AND drought-responsive in R
+  R_specific_drought            = setdiff(s_dR, s_dS),     # responds in R only
+  shared_drought                = intersect(s_dR, s_dS)
 )
+print(lengths(candidates))
+saveRDS(candidates, paste0(out, "candidate_gene_sets.rds"))
 
-summary(res_interaction_hrb)
+# ---------------- Robustness across populations ----------------
+# Status is tested with only 2 S vs 4 R populations; replicates within a population
+# are not independent for the status effect. For top hits, check that the direction
+# is consistent in each population (mean vst by population x trt):
+top <- head(s_int, 50)
+if (length(top) > 0) {
+  m <- assay(vsd)[top, , drop = FALSE]
+  popmeans <- sapply(split(seq_len(ncol(m)), paste(coldata$population, coldata$trt)),
+                     function(i) rowMeans(m[, i, drop = FALSE]))
+  write.table(popmeans, paste0(out, "top_interaction_pop_means.txt"), quote = FALSE, sep = "\t")
+}
 
-resLFC_interaction_hrb <- lfcShrink(dds_int,
-                              res = res_interaction_hrb,
-                              type = "ashr")
-
-summary(resLFC_interaction_hrb)
-
-### Significant genes for herbicide contrast
-sig_herb_genes <- as.data.frame(resLFC_interaction_hrb)
-sig_herb_genes <- sig_herb_genes[which(sig_herb_genes$padj < 0.01 &
-                                              abs(sig_herb_genes$log2FoldChange) > 2), ]
-sig_herb_genes <- sig_herb_genes[order(sig_herb_genes$padj), ]
-
-# View them
-print(sig_herb_genes)
-
-# save them
-write.table(sig_herb_genes, file = "03_outputs/04_DESeq2/sig_herb_genes.txt", 
+# ---------------- Optional: chlorophyll fluorescence ----------------
+# achl is almost collinear with trt, so only use it WITHIN treated samples:
+# genes whose expression tracks the severity of photosystem damage.
+trt_idx <- coldata$trt == "trt"
+dds_t <- DESeqDataSetFromMatrix(cts[, trt_idx], coldata[trt_idx, ],
+                                design = ~ species + achl)
+dds_t$achl <- scale(dds_t$achl)[, 1]
+dds_t <- dds_t[rowSums(counts(dds_t) >= 10) >= 5, ]
+dds_t <- DESeq(dds_t)
+res_achl <- results(dds_t, name = "achl", alpha = alpha)
+summary(res_achl)
+write.table(as.data.frame(res_achl), paste0(out, "all_achl_within_treated.txt"),
             quote = FALSE, sep = "\t")
-
-# -------<======= Differences between lines in untreated samples ========>-------- #
-
-message("generating baseline expression results for drought lineage")
-message('contrast = c("line","Drought","Control")')
-message("alpha: 0.05")
-
-res_drt_baseline <- results(
-  dds_int,
-  contrast = c("line","Drought","Control"),
-  alpha = 0.05
-)
-
-summary(res_drt_baseline)
-
-resLFC_baseline_drt <- lfcShrink(dds_int,
-                              res = res_drt_baseline,
-                              type = "ashr")
-
-summary(resLFC_baseline_drt)
-
-### Significant genes for drought lineage contrast
-sig_baseline_drt <- as.data.frame(resLFC_baseline_drt)
-sig_baseline_drt <- sig_baseline_drt[which(sig_baseline_drt$padj < 0.01 &
-                                      abs(sig_baseline_drt$log2FoldChange) > 2), ]
-sig_baseline_drt <- sig_baseline_drt[order(sig_baseline_drt$padj), ]
-
-# View them
-print(sig_baseline_drt)
-
-# save them
-write.table(sig_baseline_drt, file = "03_outputs/04_DESeq2/sig_baseline_drt.txt", 
-            quote = FALSE, sep = "\t")
-
-message("generating baseline expression results for herbicide lineage")
-message('contrast = c("line","Herbicide","Control")')
-message("alpha: 0.05")
-
-res_hrb_baseline <- results(
-  dds_int,
-  contrast = c("line","Herbicide","Control"),
-  alpha = 0.05
-)
-
-summary(res_hrb_baseline)
-
-resLFC_baseline_hrb <- lfcShrink(dds_int,
-                              res = res_hrb_baseline,
-                              type = "ashr")
-
-summary(resLFC_baseline_hrb)
-
-### Significant genes for herbicide lineage contrast
-sig_baseline_hrb <- as.data.frame(resLFC_baseline_hrb)
-sig_baseline_hrb <- sig_baseline_hrb[which(sig_baseline_hrb$padj < 0.01 &
-                                      abs(sig_baseline_hrb$log2FoldChange) > 2), ]
-sig_baseline_hrb <- sig_baseline_hrb[order(sig_baseline_hrb$padj), ]
-
-# View them
-print(sig_baseline_hrb)
-
-# save them
-write.table(sig_baseline_hrb, file = "03_outputs/04_DESeq2/sig_baseline_hrb.txt", 
-            quote = FALSE, sep = "\t")
-
-
-# Save the subset results objects
-saveRDS(resLFC_interaction_hrb, file = "03_outputs/04_DESeq2/resLFC_interaction_hrb.rds")
-saveRDS(resLFC_interaction_drt, file = "03_outputs/04_DESeq2/resLFC_interaction_drt.rds")
-saveRDS(resLFC_baseline_drt, file = "03_outputs/04_DESeq2/resLFC_baseline_drt.rds")
-saveRDS(resLFC_baseline_hrb, file = "03_outputs/04_DESeq2/resLFC_baseline_hrb.rds")
