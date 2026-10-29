@@ -18,20 +18,20 @@ for (package in packages) {
 
 # Set the working directory:
 message("setting working directory")
-setwd("/Users/jmlemas/Library/CloudStorage/OneDrive-MichiganStateUniversity/Dissertation/Chapter3/RNA_seq")
+setwd("/Users/jmlemas/Library/CloudStorage/OneDrive-MichiganStateUniversity/Dissertation/Chapter3/Lolium_samples/RNA_seq")
 
 # ===========>------- Full dataset: design ~ gen + trt --------<=========== #
 
 # Import the counts data file
 message("importing counts from featureCounts")
-countsData <- read.table(file = "03_outputs/03_featureCounts/counts.txt", header = FALSE, row.names = 1, skip = 2)
+countsData <- read.table(file = "03_outputs/03_featureCounts/counts_multi.txt", header = FALSE, row.names = 1, skip = 2)
 
 # Read in the metadata
 message("importing metadata")
-metadata_full <- read.table(file = "01_inputs/BARD_brachy_metadata.txt", header = FALSE)
+metadata_full <- read.table(file = "01_inputs/Lol_metadata.txt", header = FALSE)
 
 # Add headers
-colnames(metadata_full) <- c("fasta1", "line", "trt","name1","name2", "rep")
+colnames(metadata_full) <- c("fasta1", "name1", "rep", "trt", "status", "species", "a-chl")
 
 # Now add headers for the counts file. the final columns should be the samples in order from the metadata
 as.vector(metadata_full$name1)
@@ -60,28 +60,17 @@ rownames(metadata_full) <- metadata_full$name1
 
 # create DESeq2 input and designate factors
 # these variables can be used in plots later
-coldata <- metadata_full[,c("line","trt","rep")]
-coldata$line <- as.factor(coldata$line)
+coldata <- metadata_full[,c("status","trt","rep",""a-chl","species")]
+coldata$status <- as.factor(coldata$status)
 coldata$trt <- as.factor(coldata$trt)
 coldata$rep <- as.factor(coldata$rep)
+coldata$a-chl <- as.factor(coldata$a-chl)
+coldata$spec <- as.factor(coldata$spec)
 str(coldata)
 
 # Double check that row names and column names are identical:
 rownames(coldata)
 colnames(cts)
-
-# pull samples with low mapping rates and low read depths
-# These samples were affecting dispersion estimates, and the
-# effect was directly linked to low read libraries and low
-# mapping rates. Removing them will result in more statistically
-# sound results.
-
-message("ommiting low depth/low alignment samples:\n
-        'hr_ut_r4', 'ct_ut_r1', 'hr_t_r3'")
-low_depth_samples <- c("hr_ut_r4", "ct_ut_r1", "hr_t_r3")
-
-coldata <- coldata[!rownames(coldata) %in% low_depth_samples, ]
-cts     <- cts[, !colnames(cts) %in% low_depth_samples]
 
 # double check naming before building dds
 all(rownames(coldata) == colnames(cts))
@@ -100,28 +89,28 @@ write.table(cts, file = "03_outputs/04_DESeq2/cts.txt",
 # If you want to pull specific contrasts from different treatment groups (ie 'results()'), make sure they're in the design
 
 message("building dds object for full treatment effect")
-message("design = ~ line + trt")
+message("design = ~ status + trt")
 
 dds_full <- DESeqDataSetFromMatrix(countData = cts,
                               colData = coldata,
-                              design = ~ line + trt)
+                              design = ~ status + trt)
 
 message("building dds object with interaction design")
-message("design = ~ line + trt + line:trt")
+message("design = ~ status + trt + status:trt")
 
 dds_int <- DESeqDataSetFromMatrix(countData = cts,
                               colData = coldata,
-                              design = ~ line + trt + line:trt)
+                              design = ~ status + trt + status:trt)
 
 # Alter the below factor levels based on experiment design
 # These should be the values in coldata
 
 message("defining factor levels for both dds objects")
 
-dds_full$line <- factor(dds_full$line, levels = c("Control","Drought","Herbicide"))
+dds_full$status <- factor(dds_full$status, levels = c("Control","Drought","Herbicide"))
 dds_full$trt  <- factor(dds_full$trt,  levels = c("Control","Pinoxaden"))
 
-dds_int$line <- factor(dds_int$line, levels = c("Control","Drought","Herbicide"))
+dds_int$status <- factor(dds_int$status, levels = c("Control","Drought","Herbicide"))
 dds_int$trt  <- factor(dds_int$trt,  levels = c("Control","Pinoxaden"))
 
 # this code is selecting the genes that have normalized counts of more than 10 in at least three samples (replicate groups)
