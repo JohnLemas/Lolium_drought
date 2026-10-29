@@ -53,10 +53,32 @@ Two count matrices were produced:
 
 featureCounts reports alignments rather than reads, so multi-mapping reads (up to 20 alignments each) inflate the "total alignments" and the `Unassigned_MultiMapping` category in `*.summary`. For read-level mapping rates use STAR's `*_Log.final.out`.
 
-### 5. Downstream
+### 5. Differential expression (`DESeq2_resistance_x_drought.R`)
 
-Counts from `counts_unique.txt` go to DESeq2. Fractional counts are rounded before `DESeqDataSetFromMatrix` if used.
+Counts from `counts_unique.txt` were analysed in R with DESeq2. Fractional counts (`counts_multi.txt`) are rounded before `DESeqDataSetFromMatrix` if used as a sensitivity check.
+
+**Experimental design.** The 34 libraries come from six populations, each sampled untreated (0D) and after 5 days of drought (5D). Susceptible (S) populations are KB (*L. multiflorum*, LOLMU) and ARG (*L. rigidum*, LOLRI). Resistant (R) populations are OR1 and PR (LOLMU) and EMR and GMR (LOLRI). Status and species are therefore crossed. Two libraries (KB1-0D and EMR1-0D) are not in the dataset, so KB and EMR have two untreated replicates each and all other population-by-condition groups have three. Sample metadata (`Lol_metadata.txt`) holds the treatment, resistance status, species, replicate and chlorophyll fluorescence (a-chl) for each library. Population was derived from the sample name and is used for plotting and consistency checks, not in the model.
+
+**Model.** The count matrix columns were assigned sample names from the metadata, in the order the BAMs were given to featureCounts, and the script stops if the column and row counts differ. Genes were kept if they had at least 10 counts in at least 5 libraries (the size of the smallest status-by-treatment group, S untreated). The model was `~ species + status + trt + status:trt`, with S and untreated as reference levels. Species is adjusted for because it is crossed with status. Replicate number is not a batch effect and is not modelled. Size factors, dispersions and Wald tests were run with `DESeq()`.
+
+**Contrasts.** Five contrasts were extracted with `results()` (FDR alpha = 0.05):
+
+| Contrast | Coefficient(s) | Question |
+|---|---|---|
+| `drought_in_S` | `trt_trt_vs_untrt` | Drought response in susceptible plants |
+| `drought_in_R` | `trt_trt_vs_untrt` + `statusR.trttrt` | Drought response in resistant plants |
+| `interaction_RxS` | `statusR.trttrt` | Does the drought response differ between R and S? |
+| `baseline_R_vs_S` | `status_R_vs_S` | Constitutive R vs S differences (untreated) |
+| `drought_R_vs_S` | `status_R_vs_S` + `statusR.trttrt` | R vs S under drought |
+
+Log2 fold changes were shrunk with `lfcShrink(type = "ashr")`, with adjusted p-values taken from the Wald test and shrunken fold changes used for effect size. Genes were called significant at adjusted p < 0.05 and |shrunken log2FC| > 1. Candidate sets were built from the contrasts: genes with a differential drought response (interaction), genes that differ at baseline and respond to drought in R, genes responding to drought in R only, and genes responding in both R and S.
+
+**Fluorescence.** Because a-chl is almost collinear with treatment, it was analysed only within treated libraries (`~ species + achl`, a-chl scaled), to find genes whose expression tracks the severity of photosystem damage.
+
+**Caveats.** Status is tested with two S populations against four R populations. Within a species, the S group is a single population (KB in LOLMU, ARG in LOLRI), so population identity cannot be separated from status within a species, and replicates within a population are not independent for the status effect. Top interaction hits were therefore checked for consistent direction across populations (mean variance-stabilised expression by population and treatment). Ranking genes by sign concordance of the interaction and baseline effects across the two species is the recommended check for population-specific artefacts. Reads from both species were aligned to the *L. rigidum* reference, so species-specific mapping bias is possible.
+
+**Figures** (`DESeq2_figures.R`): PCA on the top 500 variable genes after variance-stabilising transformation (with and without the species effect removed by `limma::removeBatchEffect`, used for visualisation only), row-scaled heatmaps of top genes, EnhancedVolcano plots for each contrast, and UpSet and Venn plots of the significant gene sets.
 
 ### Software
 
-STAR 2.7.11b, SAMtools 1.19.2, Subread (featureCounts v2.0.6), AGAT 1.4.3, SeqKit 2.3.0, BEDTools 2.31.0, fastp (conda environment `fastp`; 1.3.3).
+STAR 2.7.11b, SAMtools 1.19.2, Subread (featureCounts v2.0.6), AGAT 1.4.3, SeqKit 2.3.0, BEDTools 2.31.0, fastp (conda environment `fastp`; 1.3.3), R with DESeq2, ashr, tidyverse, limma, pheatmap, EnhancedVolcano, UpSetR, ggVennDiagram (add versions with `sessionInfo()`).
