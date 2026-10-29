@@ -10,7 +10,7 @@ for (package in packages) {
 }
 
 setwd("/Users/jmlemas/Library/CloudStorage/OneDrive-MichiganStateUniversity/Dissertation/Chapter3/Lolium_samples/RNA_seq")
-out <- "03_outputs/04_DESeq2"
+out <- "03_outputs/04_DESeq2/"
 
 alpha   <- 0.05   # FDR
 lfc_cut <- 1      # post-hoc |log2FC| cut (2 is very strict for interaction terms)

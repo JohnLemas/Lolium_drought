@@ -13,7 +13,7 @@ for (package in packages) {
 
 setwd("/Users/jmlemas/Library/CloudStorage/OneDrive-MichiganStateUniversity/Dissertation/Chapter3/Lolium_samples/RNA_seq")
 indir  <- "03_outputs/04_DESeq2/"
-figdir <- "03_outputs/05_figures/"
+figdir <- "03_outputs/04_DESeq2/Figures/"
 dir.create(figdir, showWarnings = FALSE, recursive = TRUE)
 
 alpha   <- 0.05
